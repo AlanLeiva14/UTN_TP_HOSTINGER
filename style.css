@@ -12,12 +12,14 @@
   --neutral-200: #d5dfff;
   --neutral-0: #fff;
   --dark-0: #1d1e20;
+  --greencheck: #00b67a;
 }
 
 * {
   font-family: "DM Sans", sans-serif;
   margin: 0;
   padding: 0;
+  border: 0;
   box-sizing: border-box;
   line-height: 24px;
   font-weight: 400;
@@ -42,13 +44,31 @@
 .section-header {
   display: flex;
   position: fixed;
-  justify-content: center;
   align-items: center;
   padding: 10px 16px;
   background-color: var(--neutral-0);
   width: 100%;
   height: 88px;
   border: 1px var(--neutral-200);
+}
+.section-header-content a {
+  padding: 20px;
+}
+.section-header-nav a {
+  text-align: right;
+  padding: 10px;
+}
+
+.section-header-login {
+  text-align: right;
+  display: flex;
+  right: 16px;
+}
+
+.section-header-nav a,
+.section-header-login span {
+  color: var(--dark-0);
+  text-decoration: none;
 }
 
 .section-header-content {
@@ -61,19 +81,44 @@
 .section-hero {
   display: flex;
   flex-direction: row;
-  text-align: center;
-  padding: 100px;
+  padding: 130px;
+  margin: 0;
+  box-sizing: border-box;
+  background-color: var(--neutral-50);
 }
 
+.section-hero-list {
+  list-style: none;
+}
+.section-hero-img img {
+  width: 100%;
+}
+
+.section-hero-list .hero-secondary-icon-list {
+  color: var(--dark-0);
+  padding: 10px;
+  font-size: 15px;
+  font-weight: 900;
+}
+
+.section-hero-list .hero-icon-list {
+  color: var(--greencheck);
+  padding: 10px;
+  font-size: 20px;
+}
 .section-hero-content {
-  gap: 15px;
+  gap: 30px;
+  padding: 100px;
+  display: flex;
+  flex-direction: column;
+  width: 1208px;
 }
 
 .section-hero-action-button a {
-  border-radius: 15px;
+  border-radius: 8px;
   color: var(--neutral-0);
   background-color: var(--fantasy-50);
-  padding: 10px 30px;
+  padding: 10px 40px;
   text-decoration: none;
 }
 .section-hero-action-button a:hover {
@@ -94,6 +139,10 @@
 }
 .section-hero-span {
   color: var(--dark-0);
+}
+.section-hero-span .hero-span-icon {
+  color: var(--dark-0);
+  padding: 5px;
 }
 
 /* section migracion desktop */
