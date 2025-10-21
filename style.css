@@ -21,9 +21,7 @@
   padding: 0;
   border: 0;
   box-sizing: border-box;
-  line-height: 24px;
   font-weight: 400;
-  color: var(--neutral-50);
 }
 
 .tittle {
@@ -42,49 +40,117 @@
 
 /* header desktop */
 .section-header {
-  display: flex;
   position: fixed;
-  align-items: center;
-  padding: 10px 16px;
+  display: flex;
   background-color: var(--neutral-0);
   width: 100%;
   height: 88px;
-  border: 1px var(--neutral-200);
+  justify-content: space-between;
 }
-.section-header-content a {
-  padding: 20px;
+.section-header-logo {
+  align-content: center;
+  padding-left: 29px;
+  margin-top: 0.4rem; /* para que centre mejor el logo */
 }
-.section-header-nav a {
-  text-align: right;
-  padding: 10px;
-}
-
-.section-header-login {
-  text-align: right;
+.section-header-nav {
   display: flex;
-  right: 16px;
+  align-items: center;
 }
 
+.section-header-link:hover {
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+nav {
+  display: flex;
+  gap: 32px;
+  padding-left: 55px;
+  text-align: center;
+}
+
+nav a {
+  display: flex; /* Permite alinear el contenido interno */
+  align-content: center; /* Centra verticalmente el texto y el ícono */
+  gap: 0.25rem; /* Espacio entre texto y ícono */
+  text-decoration: none;
+}
+
+/* fonts color navbar */
 .section-header-nav a,
-.section-header-login span {
+.section-header-nav span,
+.section-header-login strong {
   color: var(--dark-0);
   text-decoration: none;
 }
 
 .section-header-content {
   display: flex;
+  justify-content: space-around;
+}
+
+/* español y contactos */
+.section-header-login {
+  display: flex;
+  align-items: center;
+  padding-right: 29px;
+  gap: 2rem;
+  font-weight: bold;
+}
+.section-login-action-button,
+.section-login-secondary-button {
+  text-decoration: none;
+  color: var(--dark-0);
+}
+/* Español */
+.section-header-login strong {
+  font-weight: 700;
+}
+
+.section-login-secondary-img {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.section-login-secondary-img img {
+  width: 32px;
+  height: auto;
+}
+
+.section-login-secondary-img strong:hover {
+  opacity: 0.7;
+  cursor: pointer;
+}
+/* mi cuenta */
+.section-login-action-button {
+  border: 1px solid var(--dark-0);
+  border-radius: 8px;
+  padding: 11px 15px;
+}
+.section-login-action-button:hover {
+  border: 1px solid var(--neutral-200);
+  background-color: var(--neutral-0);
+}
+
+.h-label-menu {
+  display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  gap: 40px;
+}
+
+.nav-btn {
+  display: none;
 }
 
 /* hero desktop */
 .section-hero {
   display: flex;
   flex-direction: row;
-  padding: 130px;
   margin: 0;
+  padding: 130px;
   box-sizing: border-box;
   background-color: var(--neutral-50);
+  align-items: center;
 }
 
 .section-hero-list {
@@ -112,6 +178,7 @@
   display: flex;
   flex-direction: column;
   width: 1208px;
+  margin: 0 auto;
 }
 
 .section-hero-action-button a {
@@ -144,8 +211,13 @@
   color: var(--dark-0);
   padding: 5px;
 }
+.section-hero-content .hero-sub-tittle-extra {
+  color: var(--fantasy-200);
+  font-weight: 700;
+}
 
 /* section migracion desktop */
+
 .section-migracion {
   display: flex;
   text-align: center;
@@ -153,6 +225,7 @@
   justify-content: center;
   background-color: var(--fantasy-500);
   padding: 60px;
+  color: var(--neutral-50);
 }
 
 .section-migracion-content {
@@ -168,6 +241,7 @@
   flex-direction: row;
   text-align: left;
   gap: 20px;
+  margin: 0 auto;
 }
 
 .card {
@@ -195,10 +269,97 @@
   text-decoration: none;
   padding: 11px 47px;
   font-weight: 700;
+  color: var(--neutral-50);
 }
 .section-migracion-action-button a:hover {
   background-color: #5025d1;
   cursor: pointer;
+}
+
+/* footer (cambia el color del fondo por el de aca q es el original)*/
+.footer-section {
+  margin: 0 auto;
+  max-width: 1128px;
+}
+
+/* parte 1 del footer */
+.footer-links-container {
+  padding: 24px 0px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.secondary-logo {
+  order: 0;
+}
+
+.footer-social-icons {
+  display: flex;
+  flex: 1 1 50%;
+  order: 1;
+  justify-content: flex-end;
+  gap: 16px;
+}
+
+.footer-payment-content {
+  display: flex;
+  gap: 10px;
+  order: 2;
+}
+
+.footer-section-legal {
+  order: 3;
+  align-content: center;
+}
+.footer-section-legal a {
+  text-decoration: none;
+  font-size: 14px;
+  line-height: 24px;
+  padding-left: 1rem;
+}
+
+.footer-payment-content a {
+  text-decoration: none;
+  font-style: none;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 24px;
+  align-content: center;
+}
+
+.footer-cards-paymet img {
+  width: 60px;
+  overflow: hidden;
+  border: 1px solid var(--neutral-200);
+  border-radius: 8px;
+}
+
+/* cards icon */
+.h-svgo-icon {
+  width: 32px;
+  height: 32px;
+  color: var(--dark-0);
+}
+
+/* logo hostinger */
+.h-svgo-icon--logo {
+  fill: var(--dark-0);
+  color: var(--dark-0);
+  width: 147px;
+  height: 30px;
+}
+
+/* parte 2 footer */
+.footer-copyright {
+  display: flex;
+  justify-content: space-between;
+  padding: 24px 0px;
+  border-top: 1px solid var(--neutral-200);
+  gap: 128px;
+  font-size: 14px;
+  line-height: 24px;
 }
 
 /* fixed button desktop */
@@ -223,4 +384,127 @@
 
 .fixed-action-button :hover {
   background-color: var(--fantasy-200);
+}
+
+/* media header 1300px */
+@media (max-width: 1300px) {
+  .nav-btn {
+    display: block;
+    cursor: pointer;
+    width: 40px;
+    padding: 25px 60px;
+  }
+  .nav-input {
+    display: none;
+  }
+  .h-label-menu {
+    display: none;
+  }
+}
+
+/* hero 1024*/
+@media (max-width: 1024px) {
+  .section-hero {
+    flex-direction: column;
+    padding: 60px 20px;
+    align-items: center;
+  }
+
+  .section-hero-content {
+    width: 100%;
+    max-width: 600px;
+    padding: 40px 20px;
+    gap: 20px;
+  }
+
+  .section-hero-img img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+/* migracion 1024 */
+@media (max-width: 1024px) {
+  .section-migracion {
+    flex-direction: column;
+    padding: 40px 20px;
+  }
+
+  .section-migracion-content {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    gap: 20px;
+  }
+
+  .section-migracion-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 360px;
+  }
+}
+
+/* footer  */
+
+/* footer 1024 */
+@media (max-width: 1024px) {
+  .footer-section {
+    padding: 0 16px;
+  }
+
+  .footer-links-container {
+    flex-direction: column;
+    align-items: baseline;
+    gap: 24px;
+    text-align: left;
+  }
+
+  .secondary-logo {
+    order: 1;
+  }
+
+  .footer-social-icons {
+    order: 0;
+  }
+
+  .footer-payment-content {
+    order: 3;
+  }
+
+  .footer-section-legal {
+    order: 2;
+  }
+
+  .footer-social-icons,
+  .footer-payment-content,
+  .footer-section-legal {
+    justify-content: baseline;
+    flex-wrap: wrap;
+  }
+
+  .footer-copyright {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+    align-items: center;
+  }
+}
+
+@media (max-width: 440px) {
+  .sub-tittle {
+    font-size: 15px;
+  }
+  .tittle {
+    font-size: 33px;
+  }
+  .paragraph {
+    font-size: 13px;
+  }
+  .section-hero-list li {
+    font-size: 11px;
+  }
 }
