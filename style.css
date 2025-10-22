@@ -39,41 +39,39 @@
 }
 
 /* header desktop */
-.section-header {
+header {
   position: fixed;
   display: flex;
   background-color: var(--neutral-0);
   width: 100%;
   height: 88px;
-  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
 }
 .section-header-logo {
-  align-content: center;
-  padding-left: 29px;
-  margin-top: 0.4rem; /* para que centre mejor el logo */
+  padding: 29px 0 29px 40px;
 }
-.section-header-nav {
+.section-header-content {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  padding: 20px 40px;
+  width: 100%;
 }
+/* ------------------------------------------------ */
 
-.section-header-link:hover {
-  opacity: 0.7;
-  cursor: pointer;
-}
-
-nav {
+.links {
   display: flex;
   gap: 32px;
-  padding-left: 55px;
-  text-align: center;
 }
-
-nav a {
-  display: flex; /* Permite alinear el contenido interno */
-  align-content: center; /* Centra verticalmente el texto y el ícono */
-  gap: 0.25rem; /* Espacio entre texto y ícono */
+.links a {
+  display: flex;
   text-decoration: none;
+  color: var(--dark-0);
+}
+.section-header-link:hover {
+  opacity: 0.7;
 }
 
 /* fonts color navbar */
@@ -84,29 +82,23 @@ nav a {
   text-decoration: none;
 }
 
-.section-header-content {
-  display: flex;
-  justify-content: space-around;
-}
-
-/* español y contactos */
-.section-header-login {
+/* ------------------------------------------------ */
+.login {
   display: flex;
   align-items: center;
-  padding-right: 29px;
   gap: 2rem;
-  font-weight: bold;
+  font-weight: 700;
 }
 .section-login-action-button,
 .section-login-secondary-button {
   text-decoration: none;
   color: var(--dark-0);
 }
-/* Español */
-.section-header-login strong {
+
+.login-text {
   font-weight: 700;
 }
-
+/* Español */
 .section-login-secondary-img {
   display: flex;
   align-items: center;
@@ -116,14 +108,13 @@ nav a {
   width: 32px;
   height: auto;
 }
-
-.section-login-secondary-img strong:hover {
+.section-login-secondary-img span:hover {
   opacity: 0.7;
   cursor: pointer;
 }
 /* mi cuenta */
 .section-login-action-button {
-  border: 1px solid var(--dark-0);
+  border: 1px solid black;
   border-radius: 8px;
   padding: 11px 15px;
 }
@@ -318,6 +309,7 @@ nav a {
   font-size: 14px;
   line-height: 24px;
   padding-left: 1rem;
+  color: var(--dark-0);
 }
 
 .footer-payment-content a {
@@ -388,16 +380,51 @@ nav a {
 
 /* media header 1300px */
 @media (max-width: 1300px) {
+  header {
+    justify-content: space-between;
+  }
+  .section-header-logo {
+    z-index: 10;
+  }
+  .section-header-content {
+    flex-direction: column;
+    position: fixed;
+    inset: 0;
+    top: 0%;
+    height: 100vh;
+    justify-content: space-around;
+    align-items: center;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 5;
+    background-color: var(--neutral-0);
+  }
+  /* muestra el menu */
+  header:has(.nav-input:checked) {
+    .section-header-content {
+      transform: translateX(0%);
+    }
+  }
+  /* bloquear el scroll */
+  body:has(.nav-input:checked) {
+    overflow: hidden;
+  }
+
+  .links {
+    flex-direction: column;
+  }
+  .login {
+    flex-direction: column-reverse;
+  }
+
   .nav-btn {
     display: block;
     cursor: pointer;
     width: 40px;
     padding: 25px 60px;
+    z-index: 10;
   }
   .nav-input {
-    display: none;
-  }
-  .h-label-menu {
     display: none;
   }
 }
@@ -406,7 +433,7 @@ nav a {
 @media (max-width: 1024px) {
   .section-hero {
     flex-direction: column;
-    padding: 60px 20px;
+    padding: 90px 20px;
     align-items: center;
   }
 
